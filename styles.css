@@ -51,6 +51,24 @@ body{
   color:var(--dim);margin-top:.6em;white-space:nowrap;text-align:center}
 .subrule{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
 
+/* Mobile: CAZA / COLOR apilados y más chicos; "Aventura creativa" a la derecha en dos líneas.
+   Hasta 700px porque por debajo de eso el wordmark en fila se sale de la pantalla. */
+@media (max-width:700px){
+  .mark{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"caza el" "color el";
+    column-gap:12px;row-gap:2px;align-items:end}
+  .mark .w{font-size:clamp(34px,11vw,48px)}
+  .mark .w:first-child{grid-area:caza}
+  .mark .w:last-child{grid-area:color}
+  .mark .el{grid-area:el;justify-self:end;width:min-content;white-space:normal;
+    text-align:right;line-height:1.35;margin:0 0 .35em}
+  /* bajada: si no entra, "Sem" pasa entera a la línea de abajo */
+  .subrule{flex-wrap:wrap;column-gap:12px;row-gap:2px}
+  .subrule .lab{white-space:nowrap}
+  /* guía: el texto se achica para que la miniatura no se salga en pantallas muy angostas */
+  .guidetxt{min-width:0}
+  .guiderow .freerow{flex-direction:column;gap:2px}
+}
+
 .intro{font-weight:500;font-size:15.5px;line-height:1.32;margin:16px 0 4px}
 
 /* SHUFFLE */
